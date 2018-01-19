@@ -1,12 +1,53 @@
+<% if @event.errors.any? %>
+  <div id= "error_explanation" >
+    <h2>
+      <%= pluralize(@event.errors.count, "error") %>
+      prohibited this event from being saved: </h2>
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li> <%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @event do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <br>
+  <br><br>
   <%= f.label :date %>
   <%= f.date_select :date %>
-  <br>
+  <br><br>
   <%= f.label :notes %>
   <%= f.text_area :notes %>
-  <br>
+  <br><br>
+
+  <h4>Organization Information</h4>
+  <%= f.fields_for :organization do |org_builder| %>
+    <%= org_builder.label :name %>
+    <%= org_builder.text_field :name %>
+    <br><br>
+    <%= org_builder.label :location %>
+    <%= org_builder.text_field :location %>
+    <br><br>
+    <h5>Contact Information</h5>
+    <%= org_builder.fields_for :contacts do |contact_builder| %>
+      <%= contact_builder.label :name %>
+      <%= contact_builder.text_field :name %>
+      <br><br>
+      <%= contact_builder.label :email %>
+      <%= contact_builder.text_field :email %>
+      <br><br>
+      <%= contact_builder.label :phone %>
+      <%= contact_builder.text_field :phone %>
+      <br><br>
+      <%= contact_builder.label :notes %>
+      <%= contact_builder.text_area :notes %>
+      <br><br>
+    <% end %>
+  <% end %>
+
+
+  <%= hidden_field_tag "event[user_id]", current_user.id %>
   <%= f.submit %>
 <% end %>
