@@ -7,5 +7,8 @@ class Event < ApplicationRecord
   #
   # end
 
+  def presentable_date
+    date.strftime("%B %d, %Y" )
+  end
 
 end

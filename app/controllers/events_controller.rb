@@ -18,8 +18,8 @@ class EventsController < ApplicationController
   def create
     #raise params.inspect
     event = params[:event]
-    date = Date.new event["date(1i)"].to_i, event["date(2i)"].to_i, event["date(3i)"].to_i
-    @event = Event.new(name: event_params[:name], date: date, notes: event_params[:notes], user_id: event_params[:user_id] user_id: event_params[:user_id], organization_id: )
+    @date = Date.new event["date(1i)"].to_i, event["date(2i)"].to_i, event["date(3i)"].to_i
+    @event = Event.new(event_params)
     #binding.pry
     if @event.save
       redirect_to event_path(@event)

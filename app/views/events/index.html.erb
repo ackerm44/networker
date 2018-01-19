@@ -1,0 +1,5 @@
+<ul>
+  <% @events.each do |event| %>
+    <li><%= event.presentable_date %> - <%= event.organization.name %> - <%= event.name %></li>
+  <% end %>
+</ul>

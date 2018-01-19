@@ -1,0 +1,12 @@
+<h1><%= @organization.name %></h1>
+<h4><%= @organization.location %></h4>
+<hr>
+<h2>Contacts</h2>
+<% @organization.contacts.each do |contact| %>
+  <strong><%= contact.name %></strong>
+  <p><%= contact.phone %></p>
+  <p><%= contact.email %><p>
+  <p>Notes: <%= contact.notes %><p>
+<% end %>
+
+<!-- Edit contact -->

@@ -1,0 +1,13 @@
+<h1>List of Organizations</h1>
+
+<table>
+  <tr>
+    <th>Organization</th>
+    <th>Location</th>
+  </tr>
+
+  <% @organizations.each do |organization| %>
+    <td><%= link_to organization.name, organization_path(organization) %></td>
+    <td><%= organization.location %></td>
+  <% end %>
+</table>

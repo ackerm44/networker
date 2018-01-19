@@ -3,6 +3,15 @@
 <h4>Here are a list of your past events</h4>
 <ul>
   <% @user.events.each do |event| %>
-    <li><%= event.date %> - <%= event.organization.name %> - <%= event.name %></li>
+    <li><%= event.presentable_date %> - <%= event.organization.name %> - <%= event.name %></li>
   <% end %>
 </ul>
+
+
+<!-- Here is a list of your upcoming events -->
+
+
+
+
+
+<!-- Here is a list of events that need follow-up -->
