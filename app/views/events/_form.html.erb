@@ -1,0 +1,12 @@
+<%= form_for @event do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :date %>
+  <%= f.date_select :date %>
+  <br>
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+  <br>
+  <%= f.submit %>
+<% end %>
