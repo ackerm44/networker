@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    @events = Event.all.sort_by {|e| e.date}
   end
 
   def show
@@ -17,10 +17,7 @@ class EventsController < ApplicationController
 
   def create
     #raise params.inspect
-    event = params[:event]
-    @date = Date.new event["date(1i)"].to_i, event["date(2i)"].to_i, event["date(3i)"].to_i
     @event = Event.new(event_params)
-    #binding.pry
     if @event.save
       redirect_to event_path(@event)
     else
@@ -47,11 +44,14 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, "date(1i)", "date(1i)", "date(1i)", :notes, :user_id, :organization_attributes => [:name, :location])
+    event = params[:event]
+    @date = Date.new event["date(1i)"].to_i, event["date(2i)"].to_i, event["date(3i)"].to_i
+    params.require(:event).permit(:name, :notes, :follow_up, :user_id, :organization_attributes => [:name, :location]).merge(date: @date)
   end
 
 
 end
+
 
 
 # {"utf8"=>"✓",

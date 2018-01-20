@@ -1,17 +1,16 @@
 <h1>Hello <%= @user.name %></h1>
 
-<h4>Here are a list of your past events</h4>
+<h4>Here is a list of events that need follow up</h4>
 <ul>
-  <% @user.events.each do |event| %>
+  <% @user.follow_up_events.each do |event| %>
     <li><%= event.presentable_date %> - <%= event.organization.name %> - <%= event.name %></li>
   <% end %>
 </ul>
 
 
-<!-- Here is a list of your upcoming events -->
-
-
-
-
-
-<!-- Here is a list of events that need follow-up -->
+<h4>Here is a list of all of your past events</h4>
+<ul>
+  <% @user.events.each do |event| %>
+    <li><%= event.presentable_date %> - <%= event.organization.name %> - <%= event.name %></li>
+  <% end %>
+</ul>

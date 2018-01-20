@@ -1,5 +1,8 @@
-<ul>
-  <% @events.each do |event| %>
-    <li><%= event.presentable_date %> - <%= event.organization.name %> - <%= event.name %></li>
-  <% end %>
-</ul>
+<br>
+<h4><%= link_to "New Event", new_event_path %></h4>
+
+
+<% @events.each do |event| %>
+  <%= event.presentable_date %> - <%= event.organization.name %> - <%= link_to event.name, event_path(event) %>
+  <br>
+<% end %>

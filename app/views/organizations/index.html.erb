@@ -7,7 +7,9 @@
   </tr>
 
   <% @organizations.each do |organization| %>
-    <td><%= link_to organization.name, organization_path(organization) %></td>
-    <td><%= organization.location %></td>
+    <tr>
+      <td><%= link_to organization.name, organization_path(organization) %></td>
+      <td><%= organization.location %></td>
+    </tr>
   <% end %>
 </table>

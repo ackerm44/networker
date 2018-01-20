@@ -1,5 +1,6 @@
 TO-DO
-1.  Get nested forms to work with date and nested organization and contacts
+1. Get nested forms to work with date and nested organization and contacts
+2. User authentication for routes
 
 VIEWS
 1. Event: Show, Index, New, Create, Edit, Update, Delete
