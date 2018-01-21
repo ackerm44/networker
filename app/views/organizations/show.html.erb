@@ -1,5 +1,6 @@
 <h1><%= @organization.name %></h1>
 <h4><%= @organization.location %></h4>
+<%= link_to "Edit Organization", edit_organization_path(@organization) %>
 <hr>
 <h2>Contacts</h2>
 <%= link_to "New Contact", new_organization_contact_path(@organization) %>

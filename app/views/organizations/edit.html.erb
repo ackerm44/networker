@@ -1,0 +1,10 @@
+<h1>Edit Organization</h1>
+<%= form_for @organization do |org_builder| %>
+  <%= org_builder.label :name %>
+  <%= org_builder.text_field :name %>
+  <br><br>
+  <%= org_builder.label :location %>
+  <%= org_builder.text_field :location %>
+  <br><br>
+  <%= org_builder.submit %>
+<% end %>

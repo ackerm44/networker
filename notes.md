@@ -1,6 +1,29 @@
 TO-DO
-1. Get nested forms to work with date and nested organization and contacts
-2. User authentication for routes
+1. Add a date for follow-up by
+  - Column in events table
+  - Add field to form and strong params
+  - method in event model, if follow_up date > Date.today
+  - Put in different category on events view
+5. Home - search feature for contacts
+  - Search form in partial
+  - Query off of contacts model with method
+  - redirect_to index page (with parameters)
+6.  Site design
+  - Set background with margins
+  - CSS grid
+7. Organization - filter by location
+8. Refactor
+  - helpers
+  - logic in views
+  - skinny controllers
+9.  Validations
+  - Event, must have name and date
+  - Organization, unique
+10. OAuth
+11. Form errors on contacts?
+
+
+
 
 VIEWS
 1. Event: Show, Index, New, Create, Edit, Update, Delete
