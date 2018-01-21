@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :events
 
   resources :organizations do
-    resources :contacts
+    resources :contacts, only: [:edit, :update, :new, :create]
   end
+
+  get '/contacts' => 'contacts#index'
+
 end

@@ -1,0 +1,5 @@
+<%= render 'searchform' %>
+
+<% @contacts.each do |contact| %>
+  <p><%= contact.name %> - <%= contact.organization.name %></p>
+<% end %>

@@ -1,5 +1,14 @@
 class ContactsController < ApplicationController
 
+  def index
+    @contacts = Contact.all
+    if Contact.search_by_name(params[:query])
+      @contacts = Contact.search_by_name(params[:query])
+    else
+      render :index, alert: "Name not found"
+    end
+  end
+
   def new
     @contact = Contact.new
     @organization = Organization.find(params[:organization_id])
@@ -13,7 +22,6 @@ class ContactsController < ApplicationController
       render :new
     end
   end
-
 
   def edit
     if params[:organization_id]

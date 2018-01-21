@@ -16,9 +16,6 @@ TO-DO
   - helpers
   - logic in views
   - skinny controllers
-9.  Validations
-  - Event, must have name and date
-  - Organization, unique
 10. OAuth
 11. Form errors on contacts?
 
