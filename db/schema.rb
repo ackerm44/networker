@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180120192427) do
+ActiveRecord::Schema.define(version: 20180123141521) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180120192427) do
     t.integer "user_id"
     t.integer "organization_id"
     t.boolean "follow_up"
+    t.datetime "follow_up_date"
   end
 
   create_table "organizations", force: :cascade do |t|

@@ -3,7 +3,7 @@
 <h4>Here is a list of events that need follow up</h4>
 <ul>
   <% @user.follow_up_events.each do |event| %>
-    <li><%= event.presentable_date %> - <%= event.organization.name %> - <%= event.name %> <%= link_to "See Event", event_path(event) %> </li>
+    <li><%= event.presentable_date(event.date) %> - <%= event.organization.name %> - <%= event.name %> <%= past_due(event) %> </li>
   <% end %>
 </ul>
 
@@ -11,6 +11,6 @@
 <h4>Here is a list of all of your past events</h4>
 <ul>
   <% @user.events.each do |event| %>
-    <li><%= event.presentable_date %> - <%= event.organization.name %> - <%= event.name %></li>
+    <li><%= event.presentable_date(event.date) %> - <%= event.organization.name %> - <%= event.name %></li>
   <% end %>
 </ul>

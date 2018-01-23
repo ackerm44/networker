@@ -12,5 +12,13 @@ class Organization < ApplicationRecord
     end
   end
 
+  def self.search_by_location(query)
+    if query.present?
+      Organization.all.select do |organization|
+        organization.location.downcase.include? query
+      end
+    end
+  end
+
 
 end

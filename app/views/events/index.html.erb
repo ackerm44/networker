@@ -3,6 +3,6 @@
 
 
 <% @events.each do |event| %>
-  <%= event.presentable_date %> - <%= event.organization.name %> - <%= link_to event.name, event_path(event) %>
+  <%= event.presentable_date(event.date) %> - <%= event.organization.name %> - <%= link_to event.name, event_path(event) %>
   <br>
 <% end %>

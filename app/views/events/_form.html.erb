@@ -1,15 +1,4 @@
-<% if @event.errors.any? %>
-  <div id= "error_explanation" >
-    <h2>
-      <%= pluralize(@event.errors.count, "error") %>
-      prohibited this event from being saved: </h2>
-    <ul>
-      <% @event.errors.full_messages.each do |message| %>
-        <li> <%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render 'layouts/formerrors' %>
 
 <%= form_for @event do |f| %>
   <%= f.label :name %>
@@ -20,6 +9,8 @@
   <br><br>
   <%= f.label :follow_up, "Follow Up Needed?" %>
   <%= f.check_box :follow_up %>
+  <%= f.label :Follow_up_date %>
+  <%= f.date_select :follow_up_date %>
   <br><br>
   <%= f.label :notes %>
   <%= f.text_area :notes %>
@@ -30,7 +21,7 @@
     <%= org_builder.label :name %>
     <%= org_builder.text_field :name %>
     <br><br>
-    <%= org_builder.label :location %>
+    <%= org_builder.label :location, "City or Area" %>
     <%= org_builder.text_field :location %>
     <br><br>
 

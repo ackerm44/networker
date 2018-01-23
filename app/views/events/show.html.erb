@@ -1,8 +1,10 @@
 <h1><%= @event.name %></h1>
 <hr>
-<p>Event Date: <%= @event.presentable_date %></p>
+<p>Event Date: <%= @event.presentable_date(@event.date) %></p>
 <p>Organization: <%= link_to @event.organization.name, organization_path(@event.organization) %></p>
 <hr>
 <p>Notes: <%= @event.notes %></p>
 <p>Follow Up Needed? <strong><%= @event.follow_up_display %></strong></p>
+<p>Follow Up By: <%= @event.presentable_date(@event.follow_up_date) %></p>
+<hr>
 <%= link_to "Edit Event", edit_event_path(@event) %>

@@ -7,7 +7,7 @@ class Event < ApplicationRecord
 
   validates :name, :date, presence: true
 
-  def presentable_date
+  def presentable_date(date)
     date.strftime("%B %d, %Y" )
   end
 

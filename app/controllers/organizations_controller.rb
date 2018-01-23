@@ -3,6 +3,11 @@ class OrganizationsController < ApplicationController
 
   def index
     @organizations = Organization.all.sort_by {|i| i.name}
+    if Organization.search_by_location(params[:query])
+      @organizations = Organization.search_by_location(params[:query])
+    else
+      render :index, alert: "Location not found"
+    end
   end
 
   def show
