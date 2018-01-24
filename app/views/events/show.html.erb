@@ -5,6 +5,7 @@
 <hr>
 <p>Notes: <%= @event.notes %></p>
 <p>Follow Up Needed? <strong><%= @event.follow_up_display %></strong></p>
-<p>Follow Up By: <%= @event.presentable_date(@event.follow_up_date) %></p>
+<p>Follow Up By: <%= display_follow_up_date(@event) %></p>
 <hr>
-<%= link_to "Edit Event", edit_event_path(@event) %>
+<%= link_to "Edit Event", edit_event_path(@event) %><br>
+<%= link_to "Delete Event", event_path(@event), :method => 'delete' %>

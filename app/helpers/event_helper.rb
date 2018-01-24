@@ -11,4 +11,12 @@ module EventHelper
       link_to event.name, event_path(event)
     end
   end
+
+  def display_follow_up_date(event)
+    if !event.follow_up_date.nil?
+      event.presentable_date(event.follow_up_date)
+    else
+      ""
+    end
+  end
 end

@@ -7,8 +7,8 @@ TO-DO
   - logic in views
   - skinny controllers
 10. OAuth
-11. Form errors on contacts?
 12. Contacts index link on nav bar
+13.  Consider deleting formerrors from contacts since there are no validations
 
 
 
