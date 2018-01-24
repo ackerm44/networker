@@ -14,7 +14,7 @@ module EventHelper
 
   def display_follow_up_date(event)
     if !event.follow_up_date.nil?
-      event.presentable_date(event.follow_up_date)
+      presentable_date(event.follow_up_date)
     else
       ""
     end

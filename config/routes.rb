@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: "users#show"
 
+  root to: "users#show"
+  devise_for :users
   resources :events
 
   resources :organizations do
     resources :contacts, only: [:edit, :update, :new, :create, :destroy]
   end
-
   get '/contacts' => 'contacts#index'
 
 end

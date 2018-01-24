@@ -1,5 +1,7 @@
+<h1>All Contacts</h1>
 <%= render 'searchform' %>
-
+<br>
+<hr>
 <% @contacts.each do |contact| %>
-  <p><%= contact.name %> - <%= contact.organization.name %></p>
+  <p><%= link_to contact.name, organization_path(contact.organization) %> - <%= contact.organization.name %></p>
 <% end %>

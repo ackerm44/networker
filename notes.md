@@ -7,8 +7,9 @@ TO-DO
   - logic in views
   - skinny controllers
 10. OAuth
-12. Contacts index link on nav bar
-13.  Consider deleting formerrors from contacts since there are no validations
+13. Consider deleting formerrors from contacts since there are no validations
+14. Consider moving some model methods to helpers
+15. Removed unused routes
 
 
 

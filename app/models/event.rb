@@ -7,10 +7,6 @@ class Event < ApplicationRecord
 
   validates :name, :date, presence: true
 
-  def presentable_date(date)
-    date.strftime("%B %d, %Y" )
-  end
-
   def follow_up_display
     if follow_up == true
       "Yes"

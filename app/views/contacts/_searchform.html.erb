@@ -1,5 +1,5 @@
 <%= form_tag contacts_path, method: :get do %>
   <label>Search for Contact: </label><br>
-  <%= text_field_tag :query, params[:query], placeholder: "Name or part of name" %><br>
+  <%= text_field_tag :query, params[:query], placeholder: "Name or part of name" %>
   <%= submit_tag "Search" %>
 <% end %>

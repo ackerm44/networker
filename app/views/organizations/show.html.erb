@@ -4,17 +4,17 @@
 <hr>
 <h2>Contacts</h2>
 <%= link_to "New Contact", new_organization_contact_path(@organization) %>
-<br><br>
-<% @organization.contacts.each do |contact| %>
-  <strong><%= contact.name %></strong>
-  <p><%= contact.phone %></p>
-  <p><%= contact.email %><p>
-  <p>Notes: <%= contact.notes %><p>
-  <%= link_to "Edit Contact", edit_organization_contact_path(@organization, contact) %><br>
-  <%= link_to "Delete Contact", organization_contact_path(@organization, contact), :method => 'delete' %>
-
-  <br><br><br>
-
-<% end %>
-
-<!-- Edit contact -->
+<hr>
+<br>
+<div class = "contacts">
+  <% @organization.contacts.each do |contact| %>
+    <div>
+      <strong><%= contact.name %></strong>
+      <p><%= contact.phone %></p>
+      <p><%= contact.email %><p>
+      <p>Notes: <%= contact.notes %><p>
+      <%= link_to "Edit Contact", edit_organization_contact_path(@organization, contact) %><br>
+      <%= link_to "Delete Contact", organization_contact_path(@organization, contact), :method => 'delete' %><br>
+    </div>
+  <% end %>
+</div>

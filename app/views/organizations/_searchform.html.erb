@@ -1,5 +1,5 @@
 <%= form_tag organizations_path, method: :get do %>
   <label>Search by Location: </label><br>
-  <%= text_field_tag :query, params[:query], placeholder: "City or Area" %><br>
+  <%= text_field_tag :query, params[:query], placeholder: "City or Area" %>
   <%= submit_tag "Search" %>
 <% end %>
