@@ -75,3 +75,9 @@ table {
 th {
   text-align: left;
 }
+
+.user {
+  text-align: right;
+  margin-right: 20px; 
+  color: white;
+}

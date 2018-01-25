@@ -5,8 +5,7 @@ class OrganizationsController < ApplicationController
     @organizations = Organization.all.sort_by {|i| i.name}
     if Organization.search_by_location(params[:query])
       @organizations = Organization.search_by_location(params[:query])
-    else
-      render :index, alert: "Location not found"
+      #Consider reworking this so that "Location not found" prints when search results == nil
     end
   end
 

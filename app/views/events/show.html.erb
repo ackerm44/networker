@@ -4,7 +4,7 @@
 <p>Organization: <%= link_to @event.organization.name, organization_path(@event.organization) %></p>
 <hr>
 <p>Notes: <%= @event.notes %></p>
-<p>Follow Up Needed? <strong><%= @event.follow_up_display %></strong></p>
+<p>Follow Up Needed? <strong><%= follow_up_display(@event) %></strong></p>
 <p>Follow Up By: <%= display_follow_up_date(@event) %></p>
 <hr>
 <%= link_to "Edit Event", edit_event_path(@event) %><br>

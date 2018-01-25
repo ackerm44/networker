@@ -7,12 +7,4 @@ class Event < ApplicationRecord
 
   validates :name, :date, presence: true
 
-  def follow_up_display
-    if follow_up == true
-      "Yes"
-    else
-      "No"
-    end
-  end
-
 end

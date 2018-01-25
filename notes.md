@@ -1,16 +1,10 @@
 TO-DO
-6.  Site design
-  - Set background with margins
-  - CSS grid
 8. Refactor
   - helpers
   - logic in views
   - skinny controllers
 10. OAuth
-13. Consider deleting formerrors from contacts since there are no validations
-14. Consider moving some model methods to helpers
-15. Removed unused routes
-
+16. Sign-in layout
 
 
 
