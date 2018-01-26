@@ -5,6 +5,6 @@ class Event < ApplicationRecord
 
   accepts_nested_attributes_for :organization
 
-  validates :name, :date, presence: true
+  validates :name, presence: true
 
 end
