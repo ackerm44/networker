@@ -3,5 +3,6 @@
 <br>
 <hr>
 <% @contacts.each do |contact| %>
-  <p><%= link_to contact.name, organization_path(contact.organization) %> - <%= contact.organization.name %></p>
+  <p><strong><%= link_to contact.name, organization_path(contact.organization) %> - <%= contact.organization.name %></strong></p>
+  <em><%= contact.phone %> / <%=contact.email %></em>
 <% end %>

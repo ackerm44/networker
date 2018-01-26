@@ -1,9 +1,9 @@
-<h1>Hello <%= @user.name %></h1>
+<h1>Hello <%= current_user.name %></h1>
 <h4>Today is <%= presentable_date(Date.today) %></h4>
 <hr>
 <h4>Here is a list of events that need follow up:</h4>
 <ul>
-  <% @user.follow_up_events.each do |event| %>
+  <% current_user.follow_up_events.each do |event| %>
     <li><%= presentable_date(event.date) %> - <%= event.organization.name %> - <%= past_due(event) %> </li>
   <% end %>
 </ul>
@@ -11,7 +11,7 @@
 
 <h4>Here is a list of all of your past events:</h4>
 <ul>
-  <% @user.events.each do |event| %>
+  <% current_user.events.each do |event| %>
     <li><%= presentable_date(event.date) %> - <%= event.organization.name %> - <%= event.name %></li>
   <% end %>
 </ul>

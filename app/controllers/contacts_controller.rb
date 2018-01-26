@@ -4,14 +4,18 @@ class ContactsController < ApplicationController
     @contacts = Contact.all
     if Contact.search_by_name(params[:query])
       @contacts = Contact.search_by_name(params[:query])
-    else
-      render :index, alert: "Name not found"
     end
   end
 
   def new
-    @contact = Contact.new
-    @organization = Organization.find(params[:organization_id])
+    if params[:organization_id]
+      @organization = Organization.find_by(id: params[:organization_id])
+      if @organization.nil?
+        redirect_to organizations_path, alert: "Organization not found"
+      else
+        @contact = Contact.new
+      end
+    end
   end
 
   def create
