@@ -13,7 +13,7 @@
   <%= f.label :notes %>
   <%= f.text_area :notes %>
   <br><br>
-
+  <hr>
   <!-- Make into partials??? -->
 
   <h4>Organization Information</h4>
@@ -25,20 +25,23 @@
     <%= org_builder.text_field :location %>
     <br><br>
 
-    <br><br>
-    <h5>Contact Information</h5>
-    <%= org_builder.fields_for :contacts do |contact_builder| %>
-      <%= contact_builder.label :name %>
-      <%= contact_builder.text_field :name %>
-      <br><br>
-      <%= contact_builder.label :phone %>
-      <%= contact_builder.text_field :phone %>
-      <br><br>
-      <%= contact_builder.label :email %>
-      <%= contact_builder.email_field :email %>
-      <br><br>
-      <br>
-    <% end %>
+    <h4>Contacts Information</h4>
+    <div class="contacts">
+      <%= org_builder.fields_for :contacts do |contact_builder| %>
+        <div>
+        <%= contact_builder.label :name %>
+        <%= contact_builder.text_field :name %>
+        <br><br>
+        <%= contact_builder.label :phone %>
+        <%= contact_builder.text_field :phone %>
+        <br><br>
+        <%= contact_builder.label :email %>
+        <%= contact_builder.email_field :email %>
+        <br><br>
+        <br>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 
   <%= hidden_field_tag "event[user_id]", current_user.id %>

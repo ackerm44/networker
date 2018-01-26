@@ -12,6 +12,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @event.build_organization
     @event.organization.contacts.build
+    @event.organization.contacts.build
   end
 
   def create
