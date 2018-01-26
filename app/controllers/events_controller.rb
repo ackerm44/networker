@@ -20,6 +20,8 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
+      @event.organization.contacts.build
+      @event.organization.contacts.build
       render :new
     end
   end

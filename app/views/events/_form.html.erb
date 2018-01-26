@@ -37,12 +37,16 @@
         <%= contact_builder.label :email %>
         <%= contact_builder.email_field :email %>
         <br><br>
+        <%= contact_builder.label :notes%>
+        <%= contact_builder.text_area :notes%>
         <br>
         </div>
       <% end %>
     </div>
   <% end %>
-
+  <br><br>
+  <hr>
+  <br>
   <%= hidden_field_tag "event[user_id]", current_user.id %>
   <%= f.submit %>
 <% end %>
