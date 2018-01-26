@@ -44,7 +44,9 @@ class EventsController < ApplicationController
   def event_params
     event = params[:event]
     @event_date = Date.new event["date(1i)"].to_i, event["date(2i)"].to_i, event["date(3i)"].to_i
-    @follow_up_date = Date.new event["follow_up_date(1i)"].to_i, event["follow_up_date(2i)"].to_i, event["follow_up_date(3i)"].to_i
+    if !event["follow_up_date(1i)"].empty?
+      @follow_up_date = Date.new event["follow_up_date(1i)"].to_i, event["follow_up_date(2i)"].to_i, event["follow_up_date(3i)"].to_i
+    end
     params.require(:event).permit(:name, :notes, :follow_up, :user_id, :organization_attributes => [:name, :location, :contacts_attributes => [:name, :phone, :email]]).merge(date: @event_date, follow_up_date: @follow_up_date)
   end
 

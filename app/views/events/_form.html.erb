@@ -8,7 +8,7 @@
   <%= f.label :follow_up, "Follow Up Needed?" %>
   <%= f.check_box :follow_up %>
   <%= f.label :Follow_up_date %>
-  <%= f.date_select :follow_up_date %>
+  <%= f.date_select :follow_up_date, :include_blank => true %>
   <br><br>
   <%= f.label :notes %>
   <%= f.text_area :notes %>

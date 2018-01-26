@@ -7,7 +7,6 @@
     <th>Organization</th>
     <th>Location</th>
   </tr>
-
   <% @organizations.each do |organization| %>
     <tr>
       <td><%= link_to organization.name, organization_path(organization) %></td>
