@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root to: "users#show"
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  root to: "welcome#show"
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
   resources :events
   resources :organizations, only: [:index, :show, :edit, :update, :destroy] do
     resources :contacts, only: [:new, :create, :edit, :update, :destroy]
