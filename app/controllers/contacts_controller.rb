@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  # before_action :check_current_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_current_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @contacts = Contact.all.select {|c| c.organization.user_ids[0] == current_user.id}
@@ -65,10 +65,10 @@ class ContactsController < ApplicationController
     params.require(:contact).permit(:name, :phone, :email, :notes, :organization_id)
   end
 
-  # def check_current_user
-  #   @contact = Contact.find(params[:id])
-  #   if current_user != @event.user_id
-  #     redirect_to events_path
-  #   end
-  # end
+  def check_current_user
+    @contact = Contact.find(params[:id])
+    if current_user != @contact.organization.user_ids[0]
+      redirect_to contacts_path
+    end
+  end
 end
