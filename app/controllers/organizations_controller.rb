@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
-  before_action :check_current_user, only: [:show, :edit, :update, :destroy]
+  #before_action :check_current_user, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -42,7 +42,7 @@ class OrganizationsController < ApplicationController
 
   def check_current_user
     @organization = Organization.find(params[:id])
-    if current_user != @organization.user_ids[0]
+    if current_user.id != @organization.user_ids[0]
       redirect_to organizations_path
     end
   end

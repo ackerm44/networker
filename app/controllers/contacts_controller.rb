@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :check_current_user, only: [:show, :edit, :update, :destroy]
+  #before_action :check_current_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @contacts = Contact.all.select {|c| c.organization.user_ids[0] == current_user.id}
@@ -67,7 +67,7 @@ class ContactsController < ApplicationController
 
   def check_current_user
     @contact = Contact.find(params[:id])
-    if current_user != @contact.organization.user_ids[0]
+    if current_user.id != @contact.organization.user_ids[0]
       redirect_to contacts_path
     end
   end

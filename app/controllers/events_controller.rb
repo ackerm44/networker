@@ -59,7 +59,7 @@ class EventsController < ApplicationController
 
   def check_current_user
     @event = Event.find(params[:id])
-    if current_user != @event.user_id
+    if current_user.id != @event.user_id
       redirect_to events_path
     end
   end
