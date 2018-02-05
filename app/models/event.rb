@@ -7,4 +7,8 @@ class Event < ApplicationRecord
 
   validates :name, presence: true
 
+  def self.search_by_timeframe (current_user)
+    Event.where(date: (Date.today - 30)..(Date.today), user_id: current_user)
+  end
+
 end

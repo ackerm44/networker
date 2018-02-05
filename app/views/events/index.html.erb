@@ -6,3 +6,7 @@
     <li <%= li_id_past_due(event) %> ><%= presentable_date(event.date) %> - <%= event.organization.name %> - <%= link_to event.name, event_path(event) %></li>
   <% end %>
 </ul>
+
+<% @events_by_timeframe.each do |event| %>
+  <%= event.name %><br>
+<% end %>

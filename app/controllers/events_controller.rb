@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @events = current_user.events.all.sort_by {|e| e.date}.reverse
+    @events_by_timeframe = Event.search_by_timeframe(current_user.id)
   end
 
   def show
