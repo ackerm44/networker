@@ -9,7 +9,7 @@ module EventHelper
   end
 
   def li_id_past_due(event)
-    if event.follow_up_date < Date.today
+    if !event.follow_up_date.nil? && event.follow_up_date < Date.today
       "id=past-due"
     end
   end

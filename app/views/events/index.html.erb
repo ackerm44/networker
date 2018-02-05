@@ -1,7 +1,8 @@
 <h1>List of Events</h1>
 <h4><%= link_to "New Event", new_event_path %></h4>
 <hr>
-<% @events.each do |event| %>
-  <%= presentable_date(event.date) %> - <%= event.organization.name %> - <%= link_to event.name, event_path(event) %>
-  <br>
-<% end %>
+<ul>
+  <% @events.each do |event| %>
+    <li <%= li_id_past_due(event) %> ><%= presentable_date(event.date) %> - <%= event.organization.name %> - <%= link_to event.name, event_path(event) %></li>
+  <% end %>
+</ul>
