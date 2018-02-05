@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  #before_action :check_current_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_current_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @contacts = Contact.all.select {|c| c.organization.user_ids[0] == current_user.id}
