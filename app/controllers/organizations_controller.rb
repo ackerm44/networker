@@ -1,11 +1,14 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
+  before_action :check_current_user, only: [:show, :edit, :update, :destroy]
+
 
   def index
-    @organizations = Organization.all.sort_by {|i| i.name}
-    if Organization.search_by_location(params[:query])
-      @organizations = Organization.search_by_location(params[:query])
-      #Consider reworking this so that "Location not found" prints when search results == nil
+    @organizations = current_user.organizations.all.sort_by {|i| i.name}
+    if !@organizations.empty? && !params[:query].nil?
+      @organizations = Organization.search_by_location(params[:query], current_user.id)
+    else
+      @organizations
     end
   end
 
@@ -36,4 +39,12 @@ class OrganizationsController < ApplicationController
   def set_organization
     @organization = Organization.find(params[:id])
   end
+
+  def check_current_user
+    @organization = Organization.find(params[:id])
+    if current_user != @organization.user_ids[0]
+      redirect_to organizations_path
+    end
+  end
+
 end

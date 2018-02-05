@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :check_current_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all.sort_by {|e| e.date}.reverse
+    @events = current_user.events.all.sort_by {|e| e.date}.reverse
   end
 
   def show
@@ -49,11 +50,18 @@ class EventsController < ApplicationController
     if !event["follow_up_date(1i)"].empty?
       @follow_up_date = Date.new event["follow_up_date(1i)"].to_i, event["follow_up_date(2i)"].to_i, event["follow_up_date(3i)"].to_i
     end
-    params.require(:event).permit(:name, :notes, :follow_up, :user_id, :organization_attributes => [:name, :location, :contacts_attributes => [:name, :phone, :email]]).merge(date: @event_date, follow_up_date: @follow_up_date)
+    params.require(:event).permit(:name, :notes, :follow_up, :user_id, :organization_attributes => [:name, :location, :contacts_attributes => [:name, :phone, :email, :notes]]).merge(date: @event_date, follow_up_date: @follow_up_date)
   end
 
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def check_current_user
+    @event = Event.find(params[:id])
+    if current_user != @event.user_id
+      redirect_to events_path
+    end
   end
 
 end

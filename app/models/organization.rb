@@ -1,6 +1,7 @@
 class Organization < ApplicationRecord
   has_many :events
   has_many :contacts
+  has_many :user, through: :events
   accepts_nested_attributes_for :contacts, reject_if: proc { |attributes| attributes['name'].blank? }
 
   validates :name, uniqueness: true
@@ -14,13 +15,10 @@ class Organization < ApplicationRecord
     end
   end
 
-  def self.search_by_location(query)
-    if query.present?
-      Organization.all.select do |organization|
-        organization.location.downcase.include? query
-      end
+  def self.search_by_location(query, current_user)
+    self.select do |organization|
+      (organization.user_ids[0] == current_user) && (organization.location.downcase.include? query)
     end
   end
-
 
 end

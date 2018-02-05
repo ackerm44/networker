@@ -75,12 +75,11 @@
    grid-auto-rows: minmax(20px, auto);
  }
 
-table {
-   border-spacing: 20px 0;
- }
-
 th {
   text-align: left;
+  font-size: 20px;
+  padding-bottom: 10px;
+  padding-right: 50px;
 }
 
 .user {
@@ -104,5 +103,5 @@ footer {
 }
 
 li#past-due a {
-  color: red; 
+  color: red;
 }
