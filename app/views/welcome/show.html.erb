@@ -4,7 +4,7 @@
 <h4>Here is a list of events that need follow up:</h4>
 <ul>
   <% @follow_ups.each do |event| %>
-    <li><%= presentable_date(event.follow_up_date) %> - <%= event.organization.name %> - <%= past_due(event) %> </li>
+    <li <%= li_id_past_due(event) %> ><%= presentable_date(event.follow_up_date) %> - <%= event.organization.name %> - <%= past_due(event) %> </li>
   <% end %>
 </ul>
 

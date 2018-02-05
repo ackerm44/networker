@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all.sort_by {|e| e.date}
+    @events = Event.all.sort_by {|e| e.date}.reverse
   end
 
   def show

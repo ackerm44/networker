@@ -65,7 +65,7 @@
  .welcome {
    background-color: #e76d67;
    padding: 20px;
-   color: white; 
+   color: white;
  }
 
 .contacts {
@@ -97,4 +97,12 @@ footer {
   color: red;
   font-style: italic;
 
+}
+
+#past-due {
+  color: red;
+}
+
+li#past-due a {
+  color: red; 
 }

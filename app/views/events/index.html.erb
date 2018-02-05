@@ -1,6 +1,6 @@
 <h1>List of Events</h1>
 <h4><%= link_to "New Event", new_event_path %></h4>
-
+<hr>
 <% @events.each do |event| %>
   <%= presentable_date(event.date) %> - <%= event.organization.name %> - <%= link_to event.name, event_path(event) %>
   <br>
